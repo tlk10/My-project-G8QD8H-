@@ -1,0 +1,49 @@
+# def isPrime(num):
+#
+#     if num < 2:
+#         return False
+#     for i in range(2,num):
+#         if num%i==0:
+#             return False
+#     return num
+def isPrime(x):
+    if x >= 2:
+        for y in range(2,x):
+            if x % y ==0:
+                return False
+    else:
+	    return False
+    return x
+
+def mod(num, prime):
+
+    if num % prime == 0:
+        return True
+
+#MAIN:
+n = int(input("Give me a num: "))
+max=2
+LoF=[]
+for i in range(max,n):
+    if mod(n,i):
+        LoF.append(isPrime(i))
+        n=n/i
+        max = 1
+    max += 1
+
+print(LoF)
+a = LoF[::-1]
+print(a[0])
+
+
+
+# i=1
+# list=[]
+# while i<=n:
+#     i+=1
+#     if n%i==0:
+#         list.append(isPrime(i))
+#         n= n / i
+#         i=1
+
+
