@@ -1,0 +1,29 @@
+num = input("Your Num: ")
+b1 = int(input("Starting Base: "))
+b2 = int(input("Target Base: "))
+
+
+TableOfNums = {'0': 0,'1': 1,'2': 2,'3': 3,'4': 4,'5': 5,'6': 6,'7': 7,'8': 8,'9': 9,'A': 10,'B': 11,'C': 12,'D': 13,'E': 14,'F': 15}
+
+integer = 0
+for char in num:
+    assert char in TableOfNums, 'Found unknown character!'
+    value = TableOfNums[char]
+    assert value < b1, 'Found digit outside base!'
+    integer *= b1
+    integer += value
+
+
+
+Value2Symbol = dict(map(reversed, TableOfNums.items()))
+# print(Value2Symbol)
+
+
+array = []
+while integer:
+    integer, value = divmod(integer, b2)
+    array.append(Value2Symbol[value])
+answer = ''.join(reversed(array))
+# print(array)
+# print(Value2Symbol)
+print(answer)
